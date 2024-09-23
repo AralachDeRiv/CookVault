@@ -1,0 +1,183 @@
+.small-recipe-card {
+  @include transition(0.3s);
+  opacity: 0;
+  cursor: pointer;
+  width: 200px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba($accent-yellow, 0.5);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: $primary-green;
+  color: $light-grey;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+
+  &:hover {
+    transform: translate(5px, -5px);
+  }
+
+  .picture-container {
+    width: 100%;
+    height: 200px;
+  }
+
+  h2 {
+    margin: 15px;
+    font-size: 15px;
+    text-align: center;
+  }
+}
+
+.recipe-card {
+  @include transition(505ms);
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  max-width: 700px;
+  padding: 20px;
+  margin-bottom: 70px;
+  color: $light-grey;
+  background-color: $primary-green;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: "";
+    background-image: url("./assets/saucepan.png");
+    background-position: center;
+    background-size: cover;
+    width: 75px;
+    height: 75px;
+    z-index: 99;
+    top: 15px;
+    right: 25px;
+    @include transition;
+  }
+
+  &:hover {
+    &::after {
+      transform: rotate(360deg);
+    }
+  }
+
+  p,
+  li {
+    font-size: 15px;
+  }
+  h2 {
+    font-size: 25px;
+  }
+
+  h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+
+  .first-container {
+    display: flex;
+    gap: 20px;
+
+    .image-container {
+      border-radius: 10px;
+      overflow: hidden;
+      width: 350px;
+      height: 300px;
+      box-shadow: 0 4px 8px rgba($dark-green, 0.4);
+    }
+
+    .ingredients-people-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 350px;
+      padding-bottom: 10px;
+
+      ol {
+        margin-left: 20px;
+
+        span {
+          @include transition(0.3s);
+        }
+      }
+    }
+
+    .people-container {
+      display: flex;
+      gap: 15px;
+
+      .plus-minus {
+        cursor: default;
+        span {
+          cursor: pointer;
+          font-weight: 600;
+          @include transition;
+
+          &:hover {
+            color: $highlight-orange;
+          }
+        }
+      }
+    }
+  }
+
+  .line {
+    width: 85%;
+    height: 1px;
+    background-color: $light-grey;
+    align-self: center;
+    border-radius: 20px;
+  }
+
+  .second-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+
+    p {
+      margin-left: 15px;
+    }
+  }
+}
+
+.fixed-btns {
+  @include transition;
+  opacity: 0;
+  position: fixed;
+  left: 10px;
+  bottom: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  button {
+    @include transition;
+    padding: 15px;
+    border-radius: 23px;
+    font-size: 22px;
+    font-family: "Abel";
+    font-weight: 800;
+    color: $light-grey;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .delete-btn {
+    background-color: $deep-red;
+    &:hover {
+      background-color: darken($deep-red, 10%);
+    }
+  }
+  .edit-btn {
+    background-color: $accent-yellow;
+    &:hover {
+      background-color: darken($accent-yellow, 15%);
+    }
+  }
+}

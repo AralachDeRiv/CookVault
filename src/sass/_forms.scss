@@ -1,0 +1,354 @@
+form {
+  position: relative;
+  z-index: 999;
+  background-color: $primary-green;
+  padding: 20px;
+  padding-inline: 25px;
+  padding-bottom: 35px;
+  border-radius: 15px;
+  color: $dark-green;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  .input-container {
+    position: relative;
+    margin: 15px 0;
+
+    input {
+      @include transition;
+      width: 100%;
+
+      max-width: 300px;
+      padding: 10px;
+      background-color: $primary-green;
+      padding-top: 12px;
+      padding-bottom: 10px;
+      border: 2px solid $light-grey;
+      border-radius: 4px;
+      font-size: 16px;
+      color: $light-grey;
+
+      &:focus {
+        border-color: $dark-green;
+      }
+    }
+
+    label {
+      @include transition;
+      position: absolute;
+      color: $light-grey;
+      top: -10px;
+      left: 10px;
+      font-size: 17px;
+      background: $primary-green;
+      padding: 0 5px;
+    }
+  }
+}
+
+.form-login-register {
+  @include transition;
+  // pour les transitions à voir pour les autres forms
+  opacity: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  button {
+    position: absolute;
+    background-color: $accent-yellow;
+    padding: 10px;
+    border-radius: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+
+    font-family: "Abel";
+    font-size: 20px;
+    font-weight: 900;
+    color: $primary-green;
+
+    @include transition;
+
+    &:hover {
+      background-color: darken($accent-yellow, 10%);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .register-login-message {
+    color: $dark-grey;
+    font-size: 15px;
+    font-weight: 450;
+    margin-bottom: 15px;
+    span {
+      color: darken($secondary-blue, 5%);
+      font-weight: 800;
+      cursor: pointer;
+      @include transition;
+      &:hover {
+        color: $secondary-blue;
+      }
+    }
+  }
+}
+
+.form-login {
+  .input-container {
+    margin: 22px 0;
+  }
+}
+
+.recipe-form {
+  @include transition;
+  background-color: $primary-green;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  opacity: 0;
+
+  .first-container {
+    .text-area-container {
+      margin: 10px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+
+      label {
+        z-index: 999;
+        position: absolute;
+        color: $light-grey;
+        top: -10px;
+        left: 10px;
+        font-size: 17px;
+        background: $primary-green;
+        padding: 0 5px;
+      }
+      textarea {
+        position: relative;
+
+        width: 350px;
+        height: 300px;
+        background-color: $primary-green;
+        border: 2px solid $light-grey;
+        border-radius: 4px;
+        color: $light-grey;
+        padding: 15px 5px 5px;
+        font-size: 15px;
+
+        @include transition;
+        &:focus {
+          border-color: $dark-green;
+        }
+      }
+    }
+  }
+
+  .second-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 320px;
+    text-align: center;
+
+    .file-upload {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+
+      .custom-file-upload {
+        @include transition;
+        display: inline-block;
+        padding: 5px;
+        cursor: pointer;
+        background-color: $dark-green;
+        color: $light-grey;
+        border-radius: 5px;
+        font-size: 12px;
+        font-weight: 500;
+        &:hover {
+          background-color: darken($dark-green, 5%);
+        }
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+
+      #file-name {
+        margin-left: 5px;
+        font-size: 13px;
+        color: $light-grey;
+      }
+    }
+
+    .input-container {
+      margin: 10px 0;
+      max-width: 225px;
+      .label-ingredients {
+        position: relative;
+        display: flex;
+        font-size: 14px;
+      }
+      .not-ingredient-msg {
+        color: $light-grey;
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
+    }
+
+    .custom-number-input {
+      position: relative;
+      width: 60px;
+
+      input {
+        width: 50px;
+      }
+      .plus-minus {
+        position: absolute;
+        font-size: 10px;
+        font-weight: 700;
+        color: $light-grey;
+
+        top: 5px;
+        right: 0;
+        cursor: default;
+
+        span {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .input-ingredient-container {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      position: relative;
+      margin-bottom: 3px;
+      color: $light-grey;
+      .custom-number-input {
+        transform: translateY(-2px);
+        text-align: left;
+      }
+
+      input {
+        font-size: 11px;
+        font-weight: 550;
+        max-width: 75px;
+        padding: 0;
+        margin: 0;
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid $light-grey;
+        @include transition;
+
+        &:focus {
+          border-bottom: 1px solid $dark-green;
+        }
+      }
+
+      .ingredient-unity-input {
+        width: 35px;
+        text-align: center;
+      }
+
+      button {
+        position: absolute;
+        right: -10px;
+        top: 0px;
+        background-color: $highlight-orange;
+        padding: 3px;
+        padding-right: 4px;
+        border-radius: 3px;
+        color: $light-grey;
+        font-size: 10px;
+        font-weight: 900;
+
+        @include transition;
+        &:hover {
+          background-color: darken($highlight-orange, 20%);
+        }
+      }
+    }
+
+    .add-ingredient-btn {
+      margin-top: 4px;
+      padding: 4px 10px;
+      border-radius: 5px;
+      background-color: $highlight-orange;
+      color: $light-grey;
+      font-size: 12px;
+      @include transition;
+      &:hover {
+        background-color: darken($highlight-orange, 20%);
+      }
+    }
+
+    .input-people-container {
+      margin-left: 15px;
+      margin-bottom: 10px;
+
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: $light-grey;
+
+      input {
+        background-color: $primary-green;
+        border: none;
+        border-bottom: 1px solid $light-grey;
+        color: $light-grey;
+        max-width: 50px;
+        text-align: center;
+      }
+
+      .plus-minus {
+        cursor: default;
+
+        span {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .submit-recipe-btn {
+    position: absolute;
+    background-color: $accent-yellow;
+    padding: 10px;
+    border-radius: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+
+    font-family: "Abel";
+    font-size: 20px;
+    font-weight: 900;
+    color: $primary-green;
+
+    @include transition;
+
+    &:hover {
+      background-color: darken($accent-yellow, 10%);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+// Retirer les spinners des inputs de type number
+
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}

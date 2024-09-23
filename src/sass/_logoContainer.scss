@@ -1,0 +1,45 @@
+.logo-container {
+  @include transition;
+  max-width: 50px;
+  max-height: 50px;
+  position: relative;
+
+  cursor: pointer;
+  background-color: transparent;
+
+  &::after {
+    position: absolute;
+    content: "";
+    background-color: $primary-green;
+    width: 75%;
+    height: 1px;
+    border-radius: 15px;
+    right: -35%;
+    bottom: 85%;
+    transform: rotate(90deg) translateX(50%);
+  }
+
+  &::before {
+    position: absolute;
+    z-index: 0;
+    content: "Cook Vault";
+    // background-color: gray;
+    color: $primary-green;
+    white-space: nowrap;
+    font-weight: 500;
+    font-size: 20px;
+    font-family: "Akronim";
+    right: -150%;
+    bottom: 20%;
+    opacity: 0;
+    transform: translateX(-50%);
+    @include transition();
+  }
+
+  &:hover {
+    &::before {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}

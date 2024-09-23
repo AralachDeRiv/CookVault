@@ -1,0 +1,59 @@
+header {
+  width: 100vw;
+  padding: 9px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: darken($light-grey, 10%);
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  margin-bottom: 70px;
+  border-bottom: 1px solid rgba($highlight-orange, 0.1);
+  box-shadow: 0 4px 8px rgba($highlight-orange, 0.3);
+
+  ul {
+    @include transition;
+    width: min(35vw, 250px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    .active {
+      color: darken($primary-green, 8%);
+      font-weight: 900;
+    }
+
+    li {
+      position: relative;
+      cursor: pointer;
+      font-weight: 550;
+      color: $primary-green;
+      @include transition;
+
+      // &:last-child {
+      //   margin-right: 15px;
+      // }
+
+      &::after {
+        @include transition;
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 2px;
+        background-color: $accent-yellow;
+        bottom: -2px;
+        left: 0;
+        border-radius: 15px;
+      }
+
+      &:hover {
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

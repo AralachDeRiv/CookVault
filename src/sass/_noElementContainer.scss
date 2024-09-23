@@ -1,0 +1,33 @@
+.no-element-container {
+  padding-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+
+  span {
+    cursor: pointer;
+    @include transition;
+    color: $secondary-blue;
+    font-weight: 600;
+
+    &:hover {
+      color: $highlight-orange;
+    }
+  }
+}
+
+.image-container {
+  .no-element-container {
+    padding-top: 100px;
+  }
+}
+
+.main-container > .no-element-container {
+  padding: 75px;
+  font-size: 30px;
+  font-weight: 1000;
+  color: $primary-green;
+  border-radius: 15px;
+  backdrop-filter: blur(1px);
+}
