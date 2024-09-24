@@ -14,10 +14,12 @@ const SmallRecipeCard = forwardRef(({ recipe }, ref) => {
       if (recipe.pictureID) {
         const url = await getPictureUrl(recipe.pictureID);
         setUrlPicture(url);
+      } else {
+        setUrlPicture(null);
       }
     };
     getUrl();
-  }, []);
+  }, [recipe]);
 
   const goToRecipeCard = async () => {
     await Promise.all([smallCardsAnimation(false), homePageAnimation(false)]);

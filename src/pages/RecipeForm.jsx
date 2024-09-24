@@ -70,14 +70,12 @@ const RecipeForm = () => {
           await deletePicture(recipeToEdit.pictureID);
         }
         const response = await uploadPicture(file);
-        console.log("File uploaded successfully:", response);
         return response;
       } catch (err) {
         console.error("File upload failed:", err);
         toast(err.message, {
           className: "toast-message",
         });
-
         return null;
       }
     }
